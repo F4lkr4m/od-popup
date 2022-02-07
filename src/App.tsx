@@ -3,6 +3,7 @@ import './App.css';
 import Button from './Components/Button/Button';
 import Checkbox from './Components/Checkbox/Checkbox';
 import Input from './Components/Input/Input';
+import RadioButton from './Components/RadioButton/RadioButton';
 import TextButton from './Components/TextButton/TextButton';
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
       <Input type="text" label="Текст" disabled={true} placeholder="Текст" error="kek" />
       <Checkbox label="78 000 рублей" disabled={true} />
       <Checkbox label="Второй" />
-    
+      <RadioButton id="1" label="Платеж" checked={true} />
+      <RadioButton id="2" label="Платеж" />
     </div>
   );
 }

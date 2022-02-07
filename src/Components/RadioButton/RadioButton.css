@@ -1,0 +1,33 @@
+.radio {
+  display: inline-block;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.radio__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.radio__label {
+  box-sizing: border-box;
+  padding: 6px 12px;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
+
+  background: #EEF0F2;
+  border-radius: 50px;
+
+  width: fit-content;
+  cursor: pointer;
+}
+
+.radio__input:checked + .radio__label {
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  color: #FFFFFF;
+}
