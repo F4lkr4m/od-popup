@@ -1,0 +1,25 @@
+.text-button {
+  outline: none;
+  border: none;
+  background: transparent;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+
+  color: #EA0029;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 24px;
+
+  cursor: pointer;
+}
+
+.text-button:hover {
+  color: #F53A31;
+}
+
+.text-button:active {
+  color: #EA0029;
+}
