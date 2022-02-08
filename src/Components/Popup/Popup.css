@@ -11,10 +11,11 @@
   width: 100vw;
   height: 100vh;
 
-  background: rgba(0, 0, 0, 0.3);
+  background: #B3B3B3;
 }
 
 .popup {
+  position: relative;
   background: #FFFFFF;
   border-radius: 30px;
   width: 552px;
@@ -53,4 +54,10 @@
   display: flex;
   flex-direction: row;
   column-gap: 16px;
+}
+
+.popup__close-button {
+  position: absolute;
+  top: 27px;
+  left: calc(552px - 27px - 18px);
 }

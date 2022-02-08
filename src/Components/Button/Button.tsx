@@ -2,7 +2,7 @@ import React from 'react';
 import './Button.css';
 
 interface ButtonProps {
-  label: string;
+  label?: string;
   onClick?: () => void;
   size?: 's' | 'l';
   disabled?: boolean;

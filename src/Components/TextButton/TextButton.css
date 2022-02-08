@@ -23,3 +23,8 @@
 .text-button:active {
   color: #EA0029;
 }
+
+.text-button__icon {
+  width: 18px;
+  height: 18px;
+}
