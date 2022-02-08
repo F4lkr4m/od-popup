@@ -1,0 +1,56 @@
+.popup-wrapper {
+  position: fixed;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.popup {
+  background: #FFFFFF;
+  border-radius: 30px;
+  width: 552px;
+
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  padding: 32px;
+}
+
+.popup__textbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 16px;
+  margin-bottom: 24px;
+}
+
+.popup__inputbox {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  margin-bottom: 24px;
+}
+
+.popup__radiobox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 32px;
+  margin-bottom: 40px;
+}
+
+.popup__radiobutton-wrapper {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+}

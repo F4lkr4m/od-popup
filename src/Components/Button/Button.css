@@ -78,3 +78,8 @@
   box-shadow: none;
   border: none;
 }
+
+.button-stretched {
+  width: 100%;
+  justify-content: center;
+}
