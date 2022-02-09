@@ -62,8 +62,8 @@ const Popup = (props: PopupProps) => {
         <div className="popup__radiobox">
           <Text type="h2" text="Что уменьшаем?" />
           <div className="popup__radiobutton-wrapper">
-            <RadioButton label="Платеж" checked={true} />
-            <RadioButton label="Срок" />
+            <RadioButton id="1" label="Платеж" checked={true} />
+            <RadioButton id="1" label="Срок" />
           </div>
         </div>
         <Button label="Добавить" stretched={true} />
