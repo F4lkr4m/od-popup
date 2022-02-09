@@ -15,20 +15,24 @@ interface PopupProps {
 
 const Popup = (props: PopupProps) => {
   const [inputValue, setInputValue] = useState('');
+  const [deductionArray, setDeductionArray] = useState(Array<number>());
 
   const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   }
 
-  const deductionArray = [];
-  if (!isNaN(Number(inputValue)) && inputValue.length !== 0 && Number(inputValue) > 10000) {
-    const deduciton = Number(inputValue) * 12 * 0.13;
-    let maxDeduction = 260000;
-    while (maxDeduction - deduciton > 0) {
-      deductionArray.push(deduciton);
-      maxDeduction -= deduciton;
+  const calcDeduction = () => {
+    const array = [];
+    if (!isNaN(Number(inputValue)) && inputValue.length !== 0 && Number(inputValue) > 1000) {
+      const deduciton = Number(inputValue) * 12 * 0.13;
+      let maxDeduction = 260000;
+      while (maxDeduction - deduciton > 0) {
+        array.push(deduciton);
+        maxDeduction -= deduciton;
+      }
+      array.push(maxDeduction);
     }
-    deductionArray.push(maxDeduction);
+    setDeductionArray(array);
   }
 
   return (
@@ -44,14 +48,14 @@ const Popup = (props: PopupProps) => {
         </div>
         <div className="popup__inputbox">
           <Input label="Ваша зарплата в месяц" onChange={inputChangeHandler} type="text" />
-          <TextButton label="Рассчитать" />
+          <TextButton onClick={calcDeduction} label="Рассчитать" />
         </div>
         <div></div>
         {deductionArray.length !== 0 && 
           <div className="popup__checkbox-group">
             <Text type="h2" text="Итого можете внести в качестве досрочных:" />
             {deductionArray.map((item, index) => {
-              return <><Checkbox label={<><Text type="h2" text={String(item)}/>&nbsp;<Text type="h2" text={ ` в ${index + 1}ый год`} secondary={true} /></>} />
+              return <><Checkbox label={<><Text type="h2" text={String(Math.floor(item))}/>&nbsp;<Text type="h2" text={ ` в ${index + 1}ый год`} secondary={true} /></>} />
               <div className="popup__separate-line"></div></>
             })}
           </div>}

@@ -1,5 +1,9 @@
+:root {
+  --popupWidth: 552px;
+}
+
 .popup-wrapper {
-  position: fixed;
+  position: absolute;
   display: flex;
 
   justify-content: center;
@@ -9,16 +13,18 @@
   left: 0;
 
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 
   background: #B3B3B3;
+  
+  overflow-y: auto;
 }
 
 .popup {
   position: relative;
   background: #FFFFFF;
   border-radius: 30px;
-  width: 552px;
+  width: var(--popupWidth);
 
   display: flex;
   flex-direction: column;
@@ -59,7 +65,7 @@
 .popup__close-button {
   position: absolute;
   top: 27px;
-  left: calc(552px - 27px - 18px);
+  left: calc(var(--popupWidth) - 27px - 18px);
 }
 
 .popup__checkbox-group {
@@ -73,4 +79,18 @@
   background: #DFE3E6;
   height: 1px;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .popup {
+    --popupWidth: 468px;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .popup {
+    --popupWidth: 100%;
+    border-radius: 0;
+  }
 }

@@ -4,7 +4,7 @@ import './TextButton.css';
 interface ButtonProps {
   label?: string;
   icon?: string;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent) => void;
 }
 
 const TextButton = (props: ButtonProps) => {
