@@ -5,19 +5,19 @@ interface InputProps {
   label?: string;
   type?: 'text' | 'tel' | 'email';
   placeholder?: string;
-  onChange?: () => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   disabled?: boolean;
 }
 
 const Input = (props: InputProps) => {
-  console.log(props.error ?'input__border_error' : '');
   return (
     <>
       <label className={`input__label`}>
         <span className={`input__span`}>{props.label}</span>
         <input 
           className={`input ${props.error && !props.disabled ?'input__border_error' : ''}`} 
+          onChange={props.onChange}
           disabled={props.disabled} 
           type={props.type} 
           placeholder={props.placeholder} />

@@ -7,12 +7,30 @@ import TextButton from '../TextButton/TextButton';
 import cross from '../../Assets/cross.svg';
 import './Popup.css';
 import Checkbox from '../Checkbox/Checkbox';
+import { useState } from 'react';
 
 interface PopupProps {
   onClose: () => void;
 }
 
 const Popup = (props: PopupProps) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  }
+
+  const deductionArray = [];
+  if (!isNaN(Number(inputValue)) && inputValue.length !== 0 && Number(inputValue) > 10000) {
+    const deduciton = Number(inputValue) * 12 * 0.13;
+    let maxDeduction = 260000;
+    while (maxDeduction - deduciton > 0) {
+      deductionArray.push(deduciton);
+      maxDeduction -= deduciton;
+    }
+    deductionArray.push(maxDeduction);
+  }
+
   return (
     <div className="popup-wrapper">
       <div className="popup">
@@ -25,21 +43,18 @@ const Popup = (props: PopupProps) => {
           Размер налогового вычета составляет не более 13% от своего официального годового дохода." />
         </div>
         <div className="popup__inputbox">
-          <Input label="Ваша зарплата в месяц" type="text" />
+          <Input label="Ваша зарплата в месяц" onChange={inputChangeHandler} type="text" />
           <TextButton label="Рассчитать" />
         </div>
         <div></div>
-        <div className="popup__checkbox-group">
-          <Text type="h2" text="Итого можете внести в качестве досрочных:" /> 
-          <Checkbox label={<><Text type="h2" text="78 000 рублей"/>&nbsp;<Text type="h2" text={ ` в 1ый год`} secondary={true} /></>} />
-          <div className="popup__separate-line"></div>
-          <Checkbox label="78 000 рублей" />
-          <div className="popup__separate-line"></div>
-          <Checkbox label="78 000 рублей" />
-          <div className="popup__separate-line"></div>
-          <Checkbox label="26 000 рублей" />
-          <div className="popup__separate-line"></div>
-        </div>
+        {deductionArray.length !== 0 && 
+          <div className="popup__checkbox-group">
+            <Text type="h2" text="Итого можете внести в качестве досрочных:" />
+            {deductionArray.map((item, index) => {
+              return <><Checkbox label={<><Text type="h2" text={String(item)}/>&nbsp;<Text type="h2" text={ ` в ${index + 1}ый год`} secondary={true} /></>} />
+              <div className="popup__separate-line"></div></>
+            })}
+          </div>}
         <div className="popup__radiobox">
           <Text type="h2" text="Что уменьшаем?" />
           <div className="popup__radiobutton-wrapper">
