@@ -6,6 +6,7 @@ import Text from '../Text/Text';
 import TextButton from '../TextButton/TextButton';
 import cross from '../../Assets/cross.svg';
 import './Popup.css';
+import Checkbox from '../Checkbox/Checkbox';
 
 interface PopupProps {
   onClose: () => void;
@@ -26,6 +27,18 @@ const Popup = (props: PopupProps) => {
         <div className="popup__inputbox">
           <Input label="Ваша зарплата в месяц" type="text" />
           <TextButton label="Рассчитать" />
+        </div>
+        <div></div>
+        <div className="popup__checkbox-group">
+          <Text type="h2" text="Итого можете внести в качестве досрочных:" /> 
+          <Checkbox label={<><Text type="h2" text="78 000 рублей"/>&nbsp;<Text type="h2" text={ ` в 1ый год`} secondary={true} /></>} />
+          <div className="popup__separate-line"></div>
+          <Checkbox label="78 000 рублей" />
+          <div className="popup__separate-line"></div>
+          <Checkbox label="78 000 рублей" />
+          <div className="popup__separate-line"></div>
+          <Checkbox label="26 000 рублей" />
+          <div className="popup__separate-line"></div>
         </div>
         <div className="popup__radiobox">
           <Text type="h2" text="Что уменьшаем?" />

@@ -2,9 +2,13 @@
   margin-left: 32px;
   cursor: pointer;
 
-  font-family: inherit;
+  font-family: 'LabGrotesque';
   font-size: 14px;
   line-height: 24px;
+  font-weight: 400;
+
+  display: flex;
+  flex-direction: row;
 }
 
 .check__input {

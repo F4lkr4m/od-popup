@@ -61,3 +61,16 @@
   top: 27px;
   left: calc(552px - 27px - 18px);
 }
+
+.popup__checkbox-group {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+  margin-bottom: 20px;
+}
+
+.popup__separate-line {
+  background: #DFE3E6;
+  height: 1px;
+  width: 100%;
+}

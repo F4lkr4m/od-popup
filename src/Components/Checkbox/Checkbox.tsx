@@ -2,7 +2,7 @@ import React from 'react';
 import './Checkbox.css';
 
 interface CheckboxProps {
-  label?: string;
+  label?: string | JSX.Element;
   checked?: boolean;
   disabled?: boolean;
 }
